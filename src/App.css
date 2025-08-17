@@ -286,6 +286,7 @@ footer{
   font-size: 1.2rem;
 } */
 
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -298,6 +299,8 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background: #fafafa;
+  line-height: 1.6;
 }
 
 /* ---------------- Navbar ---------------- */
@@ -313,8 +316,9 @@ body {
 .navbar {
   display: flex;
   align-items: center;
-  z-index: 100;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 100%;
 }
 
 .h1 {
@@ -323,40 +327,32 @@ body {
   background-color: #FF9B00;
   padding: 10px;
   border-radius: 15px;
-  transform: translate(50%, 50%);
+  font-size: 1.2rem;
 }
 
 .navbar ul {
   display: flex;
-  position: relative;
-  left: 32%;
-  transform: translate(-10%, 125%);
-  gap: 30px;
+  gap: 25px;
+  align-items: center;
 }
 
 .navbar ul li {
   list-style-type: none;
+  transform: translate(-195%,10%);
 }
 
 .navbar ul img {
-  text-decoration: none;
   height: 40px;
   width: 40px;
-  transform: translate(100%, -70%);
 }
 
 .darkMode {
-  display: flex;
-  position: relative;
-  left: 60%;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
   display: flex;
   align-items: center;
-  transform: translate(50%, 60%);
-  flex-wrap: wrap;
 }
 
 .darkMode img {
@@ -396,6 +392,7 @@ body {
   font-size: 4rem;
   color: #FF9B00;
 }
+
 .main-container p {
   font-size: 2rem;
   color: #ff2600;
@@ -410,17 +407,18 @@ body {
   flex-direction: column;
   background: url("../public/recipeback.jpg");
   background-size: cover;
-  height: 100vh;
+  min-height: 90vh;
   align-items: center;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 1px 5px 28px rgba(39, 39, 39, 0.5);
+  padding-bottom: 50px;
 }
 
 .recipe-list input {
   margin-top: 60px;
   margin-bottom: 30px;
   width: 35%;
-  height: 6%;
+  height: 45px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 1px 5px 28px rgba(39, 39, 39, 0.5);
   text-align: center;
@@ -428,20 +426,20 @@ body {
   border-radius: 15px;
   color: #FF9B00;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .search {
-  margin-bottom: 70px;
-  width: 10%;
-  height: 5%;
+  margin-bottom: 50px;
+  padding: 10px;
+  width: 150px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 1px 5px 28px rgba(39, 39, 39, 0.5);
   border-radius: 15px;
   background-color: #ff7043;
   font-weight: bold;
   color: white;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 .search:hover {
   background: #ff481a;
@@ -451,7 +449,7 @@ body {
 .main-recipe {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 100px;
+  margin-top: 40px;
   gap: 25px;
   justify-content: center;
 }
@@ -499,11 +497,13 @@ body {
 /* ---------------- Feedback Section ---------------- */
 .feedback-form {
   display: flex;
+  flex-direction: column;
   text-align: center;
-  margin-top: 80px;
+  margin: 60px auto;
   padding: 40px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   gap: 20px;
+  max-width: 600px;
 }
 
 .feedback-form h1 {
@@ -513,8 +513,6 @@ body {
 }
 
 .feedback-form p {
-  position: relative;
-  transform: translate(10%, 20%);
   color: #555;
   margin-bottom: 25px;
   font-size: 1.1rem;
@@ -525,12 +523,12 @@ body {
   padding: 25px;
   border-radius: 15px;
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  transform: translate(-10%, -20%);
 }
 
 .feedback-container a {
@@ -546,7 +544,7 @@ body {
   transition: all 0.3s ease;
 }
 
-.feedback-container button:hover {
+.feedback-container a:hover {
   transform: translateY(-2px);
   background: linear-gradient(135deg, #0057cc, #0099cc);
 }
@@ -561,17 +559,11 @@ footer {
   color: white;
   font-weight: 500;
   font-size: 1.2rem;
+  margin-top: 40px;
 }
 
 /* ---------------- Responsive Styles ---------------- */
 @media (max-width: 1024px) {
-  .navbar ul {
-    left: 20%;
-    gap: 20px;
-  }
-  .darkMode {
-    left: 40%;
-  }
   .main-container h1 {
     font-size: 3rem;
   }
@@ -583,7 +575,7 @@ footer {
     font-size: 1.2rem;
   }
   .search {
-    width: 20%;
+    width: 30%;
     font-size: 1rem;
   }
 }
@@ -591,19 +583,12 @@ footer {
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
+    justify-content: center;
+    gap: 10px;
   }
   .navbar ul {
-    left: 0;
-    transform: translate(0, 0);
-    gap: 15px;
-    margin-top: 10px;
-  }
-  .darkMode {
-    left: 0;
-    transform: translate(0, 0);
-    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   .main-container h1 {
     font-size: 2.5rem;
@@ -616,22 +601,18 @@ footer {
     font-size: 1rem;
   }
   .search {
-    width: 30%;
+    width: 40%;
   }
   .feedback-form {
-    flex-direction: column;
-    align-items: center;
     padding: 20px;
   }
   .feedback-container {
-    width: 90%;
-    transform: none;
+    width: 100%;
   }
 }
 
 @media (max-width: 480px) {
   .h1 {
-    transform: none;
     font-size: 1.2rem;
     padding: 5px 10px;
   }
@@ -649,7 +630,7 @@ footer {
     font-size: 1rem;
   }
   .search {
-    width: 50%;
+    width: 60%;
     height: 40px;
     font-size: 0.9rem;
   }
@@ -660,3 +641,4 @@ footer {
     font-size: 1rem;
   }
 }
+
