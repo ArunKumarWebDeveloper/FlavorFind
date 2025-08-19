@@ -3,6 +3,7 @@ import MainSection from './Components/MainSection'
 import './App.css'
 import Recipe from './Components/Recipe'
 import Feedback from './Components/Feedback'    
+import RecipeSearch from './Components/Recipe'
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
     <>
       <Navbar />
       <MainSection />
-      <Recipe />
+      <RecipeSearch />
       <Feedback />
 
     </>
