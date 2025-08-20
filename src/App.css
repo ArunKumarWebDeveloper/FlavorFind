@@ -1,290 +1,3 @@
-/* *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html{
-  scroll-behavior: smooth;
-}
-
-body{
-  font-family:Arial, Helvetica, sans-serif;
-}
-
-
-.main-nav{
-background:url("../public/nav1.jpg");
- height: 12vh;
-
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-
-  position: relative;
-  
- 
-}
-.navbar{
-  display: flex;
-  align-items: center;
-  z-index: 100;
-  flex-wrap: wrap;
-}
-
-.h1 {
-  color: #ffffff;
-  font-weight: bolder;
-  background-color: #FF9B00;
-  padding: 10px;
-  border-radius:15px ;
-  transform: translate(50%,50%);
-}
-
-.navbar ul {
-  display: flex;
-  position: relative;
-  left: 32%;
-  transform: translate(-10%,125%);
-  gap: 30px;
-}
-
-.navbar ul li {
-  list-style-type:none ;
-
-}
-
-.navbar ul img{
-  text-decoration: none;
-   height: 40px;
-   width:40px;
- transform: translate(100%,-70%);
- 
-}
-
-
-.darkMode {
-  display: flex;
-   position: relative;
-  left: 60%;
-  background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    transform: translate(50%,60%); 
-    flex-wrap: wrap;
-}
-
-.darkMode img{
-  height: 45px;
-  width: 45px; 
- 
-}
-
-
-.main-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  line-height: 2;
-}
-
-#main{
-  margin: 30px;
-  background-image: url("../public/mainback.png");
-  height: 50vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 1px 5px 28px rgba(39, 39, 39, 0.5);
-}
-
-.main-container h1{
- font-size: 4rem;
- color: #FF9B00;
-}
-.main-container p{
-  font-size: 2rem;
-  color: #ff2600;
-  font-weight: bold;
-}
-
-.recipe-list{
-  margin: 30px;
-  border-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  background: url("../public/recipeback.jpg");
-  background-size: cover;
-  height: 100vh;
-  align-items: center;
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 1px 5px 28px rgba(39, 39, 39, 0.5);
-}
-
-.recipe-list input {
-  margin-top:60px ;
-  margin-bottom:30px ;
-  width: 35%;
-  height: 6%;
-  border: 1px solid rgba(255,255,255,0.5);
-  box-shadow: 1px 5px 28px rgba(39, 39, 39, 0.5);
-  text-align: center;
-  justify-content: center;
-  outline: none;
-  border-radius: 15px;
-  color: #FF9B00;
-  font-weight: bold;
-  font-size: 1.5rem;
-}  
-
-.search{
-  margin-bottom:70px ;
-  width: 10%;
-  height: 5%;
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 1px 5px 28px rgba(39, 39, 39, 0.5);
-  border-radius: 15px;
-  background-color: #ff7043;
-  font-weight: bold;
-  color: white;
-  font-size: 1.1rem;
-}
-.search:hover{
-background: #ff481a;
-  transition:0.3s all;
-
-}
-
-.main-recipe {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 100px;
-  gap: 25px;
-  justify-content: center;
-}
-
-.recipe-card {
-  background-color: #ffffff;
-  width: 250px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 1px 5px 28px rgba(39, 39, 39, 0.2);
-  border-radius: 15px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;   
-  text-align: center;
-  padding-bottom: 15px;  
-}
-
-.recipe-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  display: block;
-}
-
-.recipe-card p {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 12px 0 8px 0;
-}
-
-.recipe-card button {
-  background: #ff7043;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 8px;
-  cursor: pointer;
-  
-}
-
-.recipe-card button:hover {
-  background: #ff4213;
-  transition:0.3s all;
-}
-
-.feedback-form {
-  display: flex;
-  text-align: center;
-  margin-top: 80px;
-  padding: 40px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  gap: 20px;
-}
-
-.feedback-form h1 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: #222;
-}
-
-.feedback-form p {
-  position: relative;
-  transform: translate(10%,20%);
-  color: #555;
-  margin-bottom: 25px;
-  font-size: 1.1rem;
-}
-
-.feedback-container {
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
-  width: 400px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-    transform: translate(-10%,-20%);
-
-}
-
-
-.feedback-container a {
-  text-decoration: none;
-  background: linear-gradient(135deg, #0077ff, #00c6ff);
-  color: #fff;
-  padding: 12px;
-  font-size: 1rem;
-  font-weight: 500;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.feedback-container button:hover {
-  transform: translateY(-2px);
-  background: linear-gradient(135deg, #0057cc, #0099cc);
-}
-
-footer{
-  display: flex;
-  background-color: #FF9B00;
-  height: 9vh;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 500;
-  font-size: 1.2rem;
-} */
 
 /* Reset */
 * {
@@ -298,7 +11,7 @@ html {
 }
 
 body {
-  background-image: url("../public/rr.jpg");
+  background-image: url("/public/rr.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   margin: 0;
@@ -323,19 +36,19 @@ body {
 
 /* Logo styling */
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: bolder;
-  background: linear-gradient(90deg, rgb(255, 255, 255) 63%, rgb(249, 71, 0) 53%);
+  background: linear-gradient(90deg, rgb(0, 0, 0) 63%, rgb(249, 17, 0) 53%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  letter-spacing: 1px;
+  transform: translate(20%,15%);
 }
 
 /* Nav links */
-ul {
+nav ul {
  padding: 20px;
   background: #ffffff;
-background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 106, 0, 1) 100%);
+background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, #fd951e 100%);
   list-style: none;
   display: flex;
   gap: 20px;
@@ -344,14 +57,14 @@ background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 106, 0,
 
 }
 
-ul li img {
+nav ul li img {
   width: 30px;
   height: 30px;
   cursor: pointer;
   transition: transform 0.2s ease;
 }
 
-ul li img:hover {
+nav ul li img:hover {
   transform: scale(1.2);
 }
 
@@ -373,8 +86,8 @@ ul li img:hover {
 }
 
 #main {
-  background-image: url("../public/back.jpg");
-  height: 50vh;
+  background-image: url("/public/back.jpg");
+  height: 45vh;
   margin: 35px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -409,7 +122,7 @@ ul li img:hover {
 .disc2 p{
   font-size: 1.2rem;
   font-weight: 700;
-  background: linear-gradient(rgb(3, 86, 6) 50%, rgba(0, 0, 0, 0.834) 63%);
+  background: linear-gradient(rgb(207, 13, 13) 50%, rgba(255, 126, 13, 0.834) 63%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 
@@ -421,7 +134,7 @@ ul li img:hover {
   border-radius: 25px;
   display: flex;
   flex-direction: column;
-  background: url("../public/im1.png");
+  background: url("/public/im1.png");
   background-size:cover;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -444,6 +157,7 @@ ul li img:hover {
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 1px 5px 28px rgba(39, 39, 39, 0.5);
+  transform: translate(10%,50%);
 }
 
 .search {
@@ -457,7 +171,7 @@ ul li img:hover {
   font-weight: bold;
   color: white;
   font-size: 1rem;
-  transform: translate(90%,0%);
+  transform: translate(110%,30%);
 }
 .search:hover {
   background: #ff481a;
@@ -475,6 +189,7 @@ outline-color: #e74c3c;
   background-color:linear-gradient(90deg,#F5D902,#FAFAFA);
   border-radius: 15px;
   padding: 8px;
+ 
  }
 
 .main-recipe {
@@ -486,13 +201,14 @@ outline-color: #e74c3c;
 }
 
 .main-recipe h5{
-  color:#ff5500;
+  color:#000000;
   font-weight: 650;
   font-size: 1.2rem;
   background: #f5d502;
-background: linear-gradient(90deg, rgba(245, 213, 2, 1) 0%, rgba(250, 250, 250, 1) 75%);
+background: linear-gradient(90deg,  rgb(255, 255, 255)  60%,rgb(250, 219, 20) 80%);
   border-radius: 15px;
   padding: 8px;
+  transform: translate(10%,50%);
 }
 
 .recipe-card {
@@ -539,6 +255,15 @@ body.dark-theme .recipe-card p{
 .recipe-card button:hover {
   background: #ff4213;
   transition: 0.3s all;
+}
+.nutrition-list{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  transform: translate(1%,10%);
+  width: 300px;
+  margin-bottom: 25px;
+  list-style-type: none;
 }
 
 /* Modal Styles */
@@ -647,11 +372,11 @@ body.dark-theme .recipe-card p{
   text-align: center;
   margin: 60px auto;
   padding: 40px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Arial", Tahoma, Geneva, Verdana, sans-serif;
   gap: 20px;
   max-width: 700px;
-  transform: translate(54%,0%);
-  background-image: url("disc.jpg");
+  transform: translate(54%, 0%);
+  background-image: url("/public/disc.jpg");
   background-size: cover;
   border-radius: 15px;
   box-shadow: 1px 10px 28px rgba(0, 0, 0, 0.25);
@@ -660,13 +385,12 @@ body.dark-theme .recipe-card p{
 .feedback-form h1 {
   font-size: 2rem;
   margin-bottom: 10px;
-  color:  #fa4700;
-border-radius: 15px;
+  color: #f56f08;
+  border-radius: 15px;
 }
 
-
 .feedback-form p {
-  color:#f10505;
+  color: #ff0000;
   margin-bottom: 25px;
   font-size: 1.1rem;
   border-radius: 15px;
@@ -686,8 +410,17 @@ border-radius: 15px;
   gap: 15px;
 }
 
-.feedback-container a {
-  text-decoration: none;
+.feedback-container textarea {
+  resize: none;
+  height: 100px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  outline: none;
+}
+
+.feedback-container button {
   background: linear-gradient(135deg, #ff8800, #faa912);
   color: #fff;
   padding: 12px;
@@ -699,7 +432,7 @@ border-radius: 15px;
   transition: all 0.3s ease;
 }
 
-.feedback-container a:hover {
+.feedback-container button:hover {
   transform: translateY(-2px);
   background: linear-gradient(135deg, #faa912, #ff8800);
 }
@@ -708,11 +441,11 @@ border-radius: 15px;
 footer {
   display: flex;
  background: #f5d502;
-background: linear-gradient(90deg, rgba(245, 213, 2, 1) 45%, rgba(255, 255, 255, 1) 67%);
+background: linear-gradient(90deg, #f5d502 48%, #ff8800 67%);
   height: 9vh;
   align-items: center;
   justify-content: center;
-  color: rgb(240, 90, 3);
+  color: rgb(6, 6, 6);
   font-weight: 700;
   font-size: 1.2rem;
   margin-top: 40px;
