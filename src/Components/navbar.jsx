@@ -11,17 +11,17 @@ function Navbar() {
         <ul>
           <li>
             <a href="#main">
-              <img src="/public/home.png" alt="home" />
+              Home
             </a>
           </li>
           <li>
             <a href="#recipe">
-              <img src="/public/recipe.png" alt="recipe" />
+             Recipe
             </a>
           </li>
           <li>
             <a href="#feedback">
-              <img src="/public/feedback.png" alt="feedback" />
+              Feedback
             </a>
           </li>
         </ul>
