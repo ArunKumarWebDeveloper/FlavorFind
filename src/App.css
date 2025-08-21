@@ -377,12 +377,10 @@ body.dark-theme .recipe-card p{
   font-size: 2rem;
   margin-bottom: 10px;
   color: #f54702;
-  backdrop-filter: blur(10px);
   border-radius: 15px;
 }
 
 .feedback-form p {
-  backdrop-filter: blur(10px);
   color: #f54702;
   margin-bottom: 25px;
   font-size: 1.1rem;
@@ -595,9 +593,6 @@ background: linear-gradient(90deg, #313131 48%,#000000 67%);
   /* Navbar */
 
 body{
-    background-image: url("/public/rr.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
   margin: 0;
   font-family: "Poppins", sans-serif;
   transition:  0.3s,  all 0.3s;
