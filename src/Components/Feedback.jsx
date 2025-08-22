@@ -11,7 +11,7 @@ const Feedback = () => {
     }
 
     // Replace with your email
-    const email = "arunlokesh78@gmail.com"; 
+    const email = "sample@gmail.com"; 
     const subject = "Customer Feedback on Food-Recipe";
     const body = encodeURIComponent(feedback);
 
