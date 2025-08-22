@@ -82,7 +82,7 @@ const Recipe = () => {
       {/* Recipe Cards */}
       <div className="main-recipe">
         {recipes.length === 0 && !loading && (
-          <h5>No recipes found. Try searching something else!</h5>
+          <h5>No recipes found. Type something!</h5>
         )}
         {recipes.map((r) => (
           <div className="recipe-card" key={r.id}>
