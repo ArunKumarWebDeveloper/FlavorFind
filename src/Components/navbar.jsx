@@ -4,7 +4,9 @@ function Navbar() {
 
   return (
   <div className="main-nav">
+    <img className="recipe" src="./rrecipe.png"></img>
   <nav className="navbar">
+    
     <div className="logo">
       <h1>FLAVORFIND</h1>
     </div>
@@ -15,6 +17,9 @@ function Navbar() {
     </ul>
 
   </nav>
+  <a href="#recipe">
+  <img  className="rlogo" src="./rlogo.png"></img>
+  </a>
 </div>
   );
 }

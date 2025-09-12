@@ -71,6 +71,33 @@ nav ul li a:hover {
   color: #f54702;
 }
 
+.recipe{
+  height: 50px;
+  width: 50px;
+  margin-right: 200px;
+  opacity: 1; 
+}
+
+.recipe:hover{
+  transform:translate3d(10px);    
+ opacity: 0.8;
+  cursor: pointer; 
+  transition: all 0.3ms ease-in-out;
+}
+
+.rlogo{
+  height: 50px;
+  width: 50px;
+  margin-left: 200px;
+}
+
+.rlogo:hover{
+  transform: scale(1.38) ;
+  transition: all 0.3ms ease-in-out;
+}
+
+
+
 /* ---------------- Hero ---------------- */
 .main-container {
   display: flex;

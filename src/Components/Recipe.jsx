@@ -22,7 +22,7 @@ const Recipe = () => {
         {
           params: {
             query,
-            number: 5,
+            number: 10,
             apiKey,
           },
         }
@@ -31,7 +31,7 @@ const Recipe = () => {
       setRecipes(res.data.results);
     } catch (err) {
       setError("Failed to fetch recipes. Please try again.");
-      console.error("Error fetching recipes:", err);
+      console.error("Error fetching recipes:",err);
     } finally {
       setLoading(false);
     }
@@ -122,7 +122,7 @@ const Recipe = () => {
 
             <h3>Nutrition </h3>
             <ul className="nutrition-list">
-              {selectedRecipe.nutrition?.nutrients?.slice(0, 5).map((n, i) => (
+              {selectedRecipe.nutrition?.nutrients?.slice(0, 8).map((n, i) => (
                 <li key={i}>
                   <strong>{n.name}</strong>: {n.amount} {n.unit}
                 </li>
