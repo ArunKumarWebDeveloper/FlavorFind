@@ -1,5 +1,4 @@
-
-import  { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 const Recipe = () => {
@@ -9,29 +8,25 @@ const Recipe = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const apiKey = "38838dd68703456a8d98f75a10639717";
-
-  // Fetch recipes from Spoonacular
+  // Fetch recipes from TheMealDB
   const fetchRecipes = async () => {
     if (!query) return;
     setLoading(true);
     setError("");
     try {
       const res = await axios.get(
-        `https://api.spoonacular.com/recipes/complexSearch`,
-        {
-          params: {
-            query,
-            number: 10,
-            apiKey,
-          },
-        }
+        `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
       );
 
-      setRecipes(res.data.results);
+      if (res.data.meals) {
+        // Limit to 5 results
+        setRecipes(res.data.meals.slice(0, 6));
+      } else {
+        setRecipes([]);
+      }
     } catch (err) {
       setError("Failed to fetch recipes. Please try again.");
-      console.error("Error fetching recipes:",err);
+      console.error("Error fetching recipes:", err);
     } finally {
       setLoading(false);
     }
@@ -43,15 +38,11 @@ const Recipe = () => {
     setError("");
     try {
       const res = await axios.get(
-        `https://api.spoonacular.com/recipes/${id}/information`,
-        {
-          params: {
-            includeNutrition: true,
-            apiKey,
-          },
-        }
+        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
       );
-      setSelectedRecipe(res.data);
+      if (res.data.meals) {
+        setSelectedRecipe(res.data.meals[0]);
+      }
     } catch (err) {
       setError("Failed to fetch recipe details.");
       console.error("Error fetching recipe details:", err);
@@ -85,10 +76,12 @@ const Recipe = () => {
           <h5>No recipes found. Type something!</h5>
         )}
         {recipes.map((r) => (
-          <div className="recipe-card" key={r.id}>
-            <img src={r.image} alt={r.title} />
-            <p>{r.title}</p>
-            <button onClick={() => fetchRecipeDetails(r.id)}>View Recipe</button>
+          <div className="recipe-card" key={r.idMeal}>
+            <img src={r.strMealThumb} alt={r.strMeal} />
+            <p>{r.strMeal}</p>
+            <button onClick={() => fetchRecipeDetails(r.idMeal)}>
+              View Recipe
+            </button>
           </div>
         ))}
       </div>
@@ -103,30 +96,38 @@ const Recipe = () => {
             >
               &times;
             </span>
-            <h2>{selectedRecipe.title}</h2>
+            <h2>{selectedRecipe.strMeal}</h2>
             <img
-              src={selectedRecipe.image}
-              alt={selectedRecipe.title}
+              src={selectedRecipe.strMealThumb}
+              alt={selectedRecipe.strMeal}
               style={{ width: "100%", borderRadius: "12px" }}
             />
 
             <h3>Instructions</h3>
-            <div
-              className="instructions"
-              dangerouslySetInnerHTML={{
-                __html: selectedRecipe.instructions
-                  ? selectedRecipe.instructions
-                  : "<p>No instructions available.</p>",
-              }}
-            />
+            <div className="instructions">
+              <p>{selectedRecipe.strInstructions}</p>
+            </div>
 
-            <h3>Nutrition </h3>
-            <ul className="nutrition-list">
-              {selectedRecipe.nutrition?.nutrients?.slice(0, 8).map((n, i) => (
-                <li key={i}>
-                  <strong>{n.name}</strong>: {n.amount} {n.unit}
-                </li>
-              ))}
+            <h3>Category</h3>
+            <p>{selectedRecipe.strCategory}</p>
+
+            <h3>Area</h3>
+            <p>{selectedRecipe.strArea}</p>
+
+            <h3>Ingredients</h3>
+            <ul>
+              {Array.from({ length: 25 }).map((_, i) => {
+                const ingredient = selectedRecipe[`strIngredient${i + 1}`];
+                const measure = selectedRecipe[`strMeasure${i + 1}`];
+                if (ingredient && ingredient.trim() !== "") {
+                  return (
+                    <li key={i}>
+                      {ingredient} - {measure}
+                    </li>
+                  );
+                }
+                return null;
+              })}
             </ul>
           </div>
         </div>
@@ -136,4 +137,3 @@ const Recipe = () => {
 };
 
 export default Recipe;
-
