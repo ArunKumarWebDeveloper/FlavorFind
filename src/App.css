@@ -80,7 +80,6 @@ nav ul li a:hover {
 
 .recipe:hover{
   transform:translate3d(10px);    
- opacity: 0.8;
   cursor: pointer; 
   transition: all 0.3ms ease-in-out;
 }
@@ -92,7 +91,7 @@ nav ul li a:hover {
 }
 
 .rlogo:hover{
-  transform: scale(1.38) ;
+  transform: scale(1.1) ;
   transition: all 0.3ms ease-in-out;
 }
 
