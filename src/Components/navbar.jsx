@@ -1,4 +1,4 @@
-
+//work is pending for responsive and mobile version//
 function Navbar() {
 
 
