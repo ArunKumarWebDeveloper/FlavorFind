@@ -52,7 +52,7 @@ const Recipe = () => {
   };
 
   return (
-    <div id="recipe" className="recipe-list">
+    <div id="home" className="recipe-list">
       {/* Search Section */}
       <div className="search-bar">
         <input

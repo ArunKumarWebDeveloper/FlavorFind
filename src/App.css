@@ -25,6 +25,7 @@ body {
   align-items: center;
   justify-content: center;
   margin: 10px;
+  width: 80%;
 }
 
 .navbar {
@@ -78,24 +79,6 @@ nav ul li a:hover {
   opacity: 1; 
 }
 
-.recipe:hover{
-  transform:translate3d(10px);    
-  cursor: pointer; 
-  transition: all 0.3ms ease-in-out;
-}
-
-.rlogo{
-  height: 50px;
-  width: 50px;
-  margin-left: 200px;
-}
-
-.rlogo:hover{
-  transform: scale(1.1) ;
-  transition: all 0.3ms ease-in-out;
-}
-
-
 
 /* ---------------- Hero ---------------- */
 .main-container {
@@ -115,7 +98,7 @@ nav ul li a:hover {
   background-size: cover;
   position: relative;
   box-shadow: 1px 5px 28px rgba(39, 39, 39, 0.5);
-  border-radius: 15px;
+  border-radius: 20px;
 }
 
 .main-container h1 {

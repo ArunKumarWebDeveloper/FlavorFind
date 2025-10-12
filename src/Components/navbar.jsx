@@ -12,14 +12,10 @@ function Navbar() {
     </div>
     <ul>
       <li><a href="#main">Home</a></li>
-      <li><a href="#recipe">Recipe</a></li>
       <li><a href="#feedback">Feedback</a></li>
     </ul>
 
   </nav>
-  <a href="#recipe">
-  <img  className="rlogo" src="./rlogo.png"></img>
-  </a>
 </div>
   );
 }

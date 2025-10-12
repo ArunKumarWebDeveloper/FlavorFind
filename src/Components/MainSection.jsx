@@ -8,7 +8,7 @@ const MainSection = () => {
                <div className="disc"> <h1>Every recipe, a new story.</h1></div>
                
                 <div className="disc2"><p>
-Here you’ll find recipes that are simple to follow, full of flavor, and made for sharing.</p></div>
+Here you’ll find recipes that are simple to follow, full of flavor "powered by MealDB API".</p></div>
                </div>
         </section>
     );
