@@ -8,44 +8,42 @@ const Recipe = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // Fetch recipes from TheMealDB
+  const API_KEY = "38838dd68703456a8d98f75a10639717"; 
+
+  // Fetch recipes from Spoonacular
   const fetchRecipes = async () => {
     if (!query) return;
     setLoading(true);
     setError("");
     try {
       const res = await axios.get(
-        `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
+        `https://api.spoonacular.com/recipes/complexSearch?query=${query}&number=6&addRecipeInformation=true&apiKey=${API_KEY}`
       );
-
-      if (res.data.meals) {
-        // Limit to 5 results
-        setRecipes(res.data.meals.slice(0, 6));
+      if (res.data.results && res.data.results.length > 0) {
+        setRecipes(res.data.results);
       } else {
         setRecipes([]);
       }
     } catch (err) {
-      setError("Failed to fetch recipes. Please try again.");
       console.error("Error fetching recipes:", err);
+      setError("Failed to fetch recipes. Please try again.");
     } finally {
       setLoading(false);
     }
   };
 
-  // Fetch details of single recipe
+  // Fetch full recipe info (including nutrition)
   const fetchRecipeDetails = async (id) => {
     setLoading(true);
     setError("");
     try {
       const res = await axios.get(
-        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
+        `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=${API_KEY}`
       );
-      if (res.data.meals) {
-        setSelectedRecipe(res.data.meals[0]);
-      }
+      setSelectedRecipe(res.data);
     } catch (err) {
-      setError("Failed to fetch recipe details.");
       console.error("Error fetching recipe details:", err);
+      setError("Failed to fetch recipe details.");
     } finally {
       setLoading(false);
     }
@@ -76,12 +74,10 @@ const Recipe = () => {
           <h5>No recipes found. Type something!</h5>
         )}
         {recipes.map((r) => (
-          <div className="recipe-card" key={r.idMeal}>
-            <img src={r.strMealThumb} alt={r.strMeal} />
-            <p>{r.strMeal}</p>
-            <button onClick={() => fetchRecipeDetails(r.idMeal)}>
-              View Recipe
-            </button>
+          <div className="recipe-card" key={r.id}>
+            <img src={r.image} alt={r.title} />
+            <p>{r.title}</p>
+            <button onClick={() => fetchRecipeDetails(r.id)}>View Recipe</button>
           </div>
         ))}
       </div>
@@ -96,39 +92,43 @@ const Recipe = () => {
             >
               &times;
             </span>
-            <h2>{selectedRecipe.strMeal}</h2>
+            <h2>{selectedRecipe.title}</h2>
             <img
-              src={selectedRecipe.strMealThumb}
-              alt={selectedRecipe.strMeal}
+              src={selectedRecipe.image}
+              alt={selectedRecipe.title}
               style={{ width: "100%", borderRadius: "12px" }}
             />
 
             <h3>Instructions</h3>
             <div className="instructions">
-              <p>{selectedRecipe.strInstructions}</p>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: selectedRecipe.instructions || "No instructions available.",
+                }}
+              />
             </div>
-
-            <h3>Category</h3>
-            <p>{selectedRecipe.strCategory}</p>
-
-            <h3>Area</h3>
-            <p>{selectedRecipe.strArea}</p>
 
             <h3>Ingredients</h3>
             <ul>
-              {Array.from({ length: 25 }).map((_, i) => {
-                const ingredient = selectedRecipe[`strIngredient${i + 1}`];
-                const measure = selectedRecipe[`strMeasure${i + 1}`];
-                if (ingredient && ingredient.trim() !== "") {
-                  return (
-                    <li key={i}>
-                      {ingredient} - {measure}
-                    </li>
-                  );
-                }
-                return null;
-              })}
+              {selectedRecipe.extendedIngredients?.map((ing, i) => (
+                <li key={i}>
+                  {ing.original}
+                </li>
+              ))}
             </ul>
+
+            <h3>Nutrition</h3>
+            {selectedRecipe.nutrition ? (
+              <ul>
+                {selectedRecipe.nutrition.nutrients.slice(0, 6).map((n, i) => (
+                  <li key={i}>
+                    {n.name}: {n.amount} {n.unit}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>No nutrition data available.</p>
+            )}
           </div>
         </div>
       )}
