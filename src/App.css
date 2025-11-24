@@ -1,4 +1,4 @@
-/* Your original CSS code remains here, unchanged. */
+
 * {
   margin: 0;
   padding: 0;
@@ -466,7 +466,7 @@ footer a {
   box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.1);
   padding: 10px 28px;
   border-radius: 15px;
-  background: rgba(255, 255, 255, 0.1); /* makes it button-like */
+  background: rgba(255, 255, 255, 0.1);
 }
 
 footer a:hover{
