@@ -500,7 +500,6 @@ body {
   }
 }
 
-/* footer */
 footer{
   height:60px;
   display:flex;
@@ -518,7 +517,9 @@ footer a{
   text-decoration:none;
   font-weight:600;
 
+
 }
+/*need to add design changes*/
 
 /* ---------------- Responsive Tweaks ---------------- */
 @media (max-width: 1200px) {
